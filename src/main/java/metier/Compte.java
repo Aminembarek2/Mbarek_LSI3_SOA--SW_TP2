@@ -1,10 +1,23 @@
 package metier;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlTransient;
+
 import java.util.Date;
 
+// Annotation indiquant que la classe peut être utilisée en tant qu'élément racine pour la sérialisation XML.
+@XmlRootElement
+
+// Annotation spécifiant l'accès aux champs pour la sérialisation XML.
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Compte {
     // Attributs privés de la classe.
     private int code; // Code du compte.
     private int solde; // Solde du compte.
+
+    // Annotation indiquant que l'attribut ne doit pas être inclus dans la sérialisation XML.
+    @XmlTransient
     private Date dateCreation; // Date de création du compte.
 
     // Constructeur avec paramètres permettant d'initialiser les attributs lors de la création d'un objet Compte.
